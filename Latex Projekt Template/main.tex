@@ -1,0 +1,150 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[top=2.5cm,bottom=2.5cm,left=1.7cm,right=1.7cm]{geometry}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{fancyhdr}
+\usepackage[iso,german]{isodate}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\linespread{1.15}
+\setlength{\headheight}{14pt}
+
+\usepackage[style=numeric,backend=biber,defernumbers=true,]{biblatex}
+\addbibresource{Quellen.bib} 
+\usepackage{graphicx}
+\graphicspath{{Abbildungen/}}
+
+\usepackage[colorlinks=false,allbordercolors=white]{hyperref}
+
+%Titelblatt - brauchen wir eigentlich erst im Endbericht:
+\title{Template Studienarbeit}
+\author{Sittner Christian}
+\date{\today}
+
+\newpage{}
+
+\begin{document}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+
+\maketitle
+
+\newpage
+
+\renewcommand*\contentsname{Inhaltsverzeichnis}
+\tableofcontents
+
+
+%AB HIER RAUSKOPIEREN UND INS SAMMELDOKUMENT!!!!!!
+
+\newpage
+%Inhalt Kopfzeile - das wird im Enddokument nur noch einmal existieren:
+\fancyhead[L]{A-02}
+%Hier das Arbeitspaket für das ihr das Dokument erstellt:
+\fancyhead[C]{APXX}
+%Hier Version des Dokuments:
+\fancyhead[R]{VXX}
+%Hier der Name des Dokukmentes
+\fancyfoot[L]{XXXXXXX}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\date{\today}}
+%Headline-Tabelle:
+\begin{tabular}{|p{3.5cm}|p{5cm}|p{2cm}|p{5cm}|}
+ \hline
+ Projekt &\multicolumn{3}{|l|}{Flügelanschluss Nutzflugzeug} \\
+ \hline
+ Projektphase &\multicolumn{3}{|l|}{Projektplanung} \\
+ \hline
+ Projektleiter &Professor Strohmaier &Ersteller &Sittner Christian\\
+ &&&Weitere\\
+ \hline
+ AP-Veranwortlicher&Peter &Freigabe &Maggo\\
+ \hline
+\end{tabular}
+%Dokumentbeginn:
+\section{APXX Aufbau Section}
+
+%BEI NEUEM PROJEKT: AB HIER KANN GELÖSCHT WERDEN!!!!!!
+
+Wenn ihr ein Dokument erstellt, ist die Sektion euer Arbeitspaket (APXX)
+\subsection{APXX.X und Subsection}
+In die Subsection gehört das Unterarbeitspaket (APXX.X).
+\subsubsection{Weitere Unterteilungen}
+Ab hier ist die Aufteilung im Unterarbeitspaket euch überlassen
+\subsubsection{Wichtig}
+Keine Section darf nur einen Unterpunkt haben.\vspace{8pt}
+
+\noindent Absätze müssen visuell von einander getrennt werden. Das Automatische Einrücken bitte nicht machen. Achtet drauf nicht zu lange Textabschnitte einzubauen. 
+Es wäre außerdem schön im Code hin und wieder
+mal
+einen
+Umbruch einzubauen, um Text leichter zu finden, sollten Sachen geändert werden müssen.\vspace{8pt}
+
+\noindent Formeln könnt ihr auf zwei Arten in eurem Dokument hinterlegen. Mit Dollarzeichen $\frac{alles~hier~zwischen}{ist~eine~Formel}$ direkt im Fließtext.
+Das nutzt ihr bitte nur für kurze Formelausdrücke, zum Beispiel wenn ihr die Kraft $F_D$ im Text erwähnt. Alle anderen Formeln sollten so programmiert werden:
+%
+%Formelformatierung:
+\begin{equation}
+ Die~Syntax~ist~dieselbe~wie~zwischen~den~Dollarzeichen:~\sum F_i    \to 50Nm\cdot 8=\int^2_1 dA=\ddot x=\dot v=a
+\label{equation:APXX-01}%Das Label im Stil: "equation:APXX-"
+\end{equation}
+% 
+Das Label 'equation:APXX-' (\ref{equation:APXX-01}) bitte einhalten, damit wir beim Zusammenfügen nicht 20 verschiedene Gleichungen 01 haben.
+%
+\noindent Bilder müssen im Text referenziert werden (siehe Abbildung \ref{fig:Beispielbild})\vspace{8pt}
+
+\noindent Quellen müssen zitiert werden. Die Quellen sind in der Datei 'Quellen.bib' hinterlegt. Es gibt unterschiedliche Arten von Quellen. 
+Websiten \cite{website}, Dokumente die wir im Rahmen des Projekts erstellt haben \cite{mpp}, (diese müssen dann auch noch in den Anhang), vom Strohmeier erzählt \cite{strohmeier},
+Skripte und Themen aus anderen Vorlesungen \cite{aero}. Ich hab jetzt in den Lastannahmen noch Pietras \cite{bdlII} und die Berichte vom Sperl \cite{b236B} zu Rate 
+gezogen. Es wäre ne Überlegung Wert ein Sammeldokument für alle Quellen im Root der Datenbank anzulegen, damit wir nicht unterschiedlich dieselben Quellen zitieren.\vspace{8pt}
+\newpage
+%
+%Bilder im Pfad /figures
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Beispielbild} 
+    \caption{Die Caption darf auch nicht leer bleiben!}
+    \label{fig:Beispielbild}%Das Label bitte auch eindeutig vergeben!
+\end{figure}
+%
+%
+\noindent Wenn ein Bild von Latex auf die nächste Seite verschoben wird, mag ich es die Codezeilen dahin zu setzen wo auch das Bild hingeschoben wird. 
+Erleichtert die Syntax. Bilder sucht der Code im Ordner 'Abbildungen'. Das '.png' braucht ihr nicht zwingend am Ende.\vspace{8pt}
+
+\noindent Es ist übrigens auch möglich Textzeilen zu zitieren:\vspace{8pt}
+
+\noindent Zitat \cite{cs}
+\begin{quotation}
+\begin{itshape}
+\noindent "Positive and negative gusts of 25 fps at VD must be considered at altitudes between
+sea level and 6096 m (20 000 ft). The gust velocity may be reduced linearly from
+25 fps at 6096 m (20 000 ft) to $12.5$ fps at 15240 m (50 000 ft)."
+\end{itshape}
+\end{quotation}\vspace{8pt}
+\noindent Die Formelsyntax kann man recht schnell lernen, aber es gibt online Formeleditoren, die helfen am Anfang \cite{formel}, Sonderzeichen google ich immer. \vspace{8pt}
+
+\noindent Ich glaube jetzt ist alles wichtige drin. Am besten immer das Template bei nem neuen Projekt umbauen, ich makier die Zeilen raus gelöscht werden müssen.
+Ich benutze Latex über VS-Code mit lokalem Compiler, das Setup ist recht simpel, das Tutorial \cite{latex} dauert 15 min. Overleaf hat sehr gute Tutorials, auch wenn man nur
+Syntax sucht.\vspace{8pt}
+
+\noindent Wenn ihr ein Latexprojekt den Server hochladet müsst Ihr in Dokumentoriginale 'main.tex', 'Quellen.bib' 
+und den Ordner 'Abbildungen' hochladen.  Das pdf solltet ihr auch beilassen, damit man nicht jedes Mal compilen muss um das Dokument zum Code zu sehen. 
+BITTE ein Projekt immer in einen eigenen, beschrifteten Ordner tun - sonst haben wir bald 
+20 'main.tex' Dateien die nicht zusammenhängen.
+
+%BEI NEUEM PROJEKT: BIS HIER KANN GELÖSCHT WERDEN!!!!!!
+
+%BIS HIER RAUSKOPIEREN UND INS SAMMELDOKUMENT!!!!!!
+
+\newpage
+\section{Literaturverzeichnis}
+\printbibliography[heading=subbibintoc,type=report,title={Referenzdokumente, im Rahmen des Projekts erstellt}]
+\printbibliography[heading=subbibintoc,type=reference,title={Skript-Quellen}]
+\printbibliography[heading=subbibintoc,type=online,title={Online-Quellen}]
+\end{document}
